@@ -50,9 +50,9 @@ fn main() {
         Some(ref x) if x == "generate_key" => {
             println!("{}", generate_key(16).to_base64(STANDARD));
         },
-		Some(ref x) => {
-			usage();
-		}
-		_ => { usage(); }
+        Some(ref x) => {
+            usage();
+        }
+        _ => { usage(); }
 	}
 }
