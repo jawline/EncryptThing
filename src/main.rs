@@ -31,6 +31,13 @@ fn encrypt(key: &str, message: &str, iv: &Vec<u8>) {
     println!("{}", encrypted_bytes.to_base64(STANDARD));
 }
 
+fn usage() {
+    println!("Usage");
+    println!("{} generate_key", &std::env::args().nth(0).unwrap());
+    println!("{} encrypt KEY MESSAGE", &std::env::args().nth(0).unwrap());
+    println!("{} decrypt KEY MESSAGE", &std::env::args().nth(0).unwrap());
+}
+
 fn main() {
     let iv: Vec<u8> = vec![0; 128];
 	match std::env::args().nth(1) {
@@ -44,8 +51,8 @@ fn main() {
             println!("{}", generate_key(16).to_base64(STANDARD));
         },
 		Some(ref x) => {
-			println!("Enter generate, encrypt or decrypt {}", x);
+			usage();
 		}
-		_ => { println!("Incorrect number of arguments"); }
+		_ => { usage(); }
 	}
 }
